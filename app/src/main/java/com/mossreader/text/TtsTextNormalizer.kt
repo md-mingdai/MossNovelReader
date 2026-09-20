@@ -139,7 +139,7 @@ object TtsTextNormalizer {
 object ChineseNumbers {
     private const val DIG = "零一二三四五六七八九"
     private val NUM = Regex("(?<![A-Za-z\\d.])(\\d+(?:\\.\\d+)?)(\\s?[%％])?(?![A-Za-z])")
-    private val TIME = Regex("(?<![\\d:])([01]?\\d|2[0-3])[:：]([0-5]\\d)(?![\\d:])")
+    private val TIME = Regex("(?<![\\d:])([01]?\\d|2[0-3])(?::|：)([0-5]\\d)(?![\\d:])")
 
     fun normalize(text: String): String {
         var t = TIME.replace(text) { m ->
